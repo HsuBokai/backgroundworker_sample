@@ -1,0 +1,1142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://cyberasiatech.com/digiEAR/XmlWebServices/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://cyberasiatech.com/digiEAR/XmlWebServices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">XML Web Services -DEsearch - provided by digiEAR</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://cyberasiatech.com/digiEAR/XmlWebServices/">
+      <s:element name="digiEAR_search">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="imaxResults" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchDS">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="ihSearch" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_searchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digiEAR_searchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_search2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="imaxResults" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchDS">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="ihSearch" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_search2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digiEAR_search2Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_searchOpenHandle">
+        <s:complexType />
+      </s:element>
+      <s:element name="digiEAR_searchOpenHandleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_searchOpenHandleResult" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="1" maxOccurs="1" name="ihSearch" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="DEERRORCODE_TAG">
+        <s:restriction base="s:string">
+          <s:enumeration value="DE_SUCCESS" />
+          <s:enumeration value="DEE_ERROR" />
+          <s:enumeration value="DEE_API_NOT_INITIALIZED" />
+          <s:enumeration value="DEE_API_ALREADY_INITIALIZED" />
+          <s:enumeration value="DEE_CACHE_INSUFFICIENT_MEMORY" />
+          <s:enumeration value="DEE_CACHE_SIZE_TOO_SMALL" />
+          <s:enumeration value="DEE_CACHE_FULL" />
+          <s:enumeration value="DEE_FILE_OPEN_ERROR" />
+          <s:enumeration value="DEE_FILE_READ_ERROR" />
+          <s:enumeration value="DEE_FILE_INCORRECT_FORMAT" />
+          <s:enumeration value="DEE_FILE_VERSION_MISMATCH" />
+          <s:enumeration value="DEE_FILE_CREATE_ERROR" />
+          <s:enumeration value="DEE_FILE_WRITE_ERROR" />
+          <s:enumeration value="DEE_FILE_INVALID_FILENAME" />
+          <s:enumeration value="DEE_FILE_NOT_FOUND" />
+          <s:enumeration value="DEE_FILE_PATH_NOT_FOUND" />
+          <s:enumeration value="DEE_FILE_READ_ONLY" />
+          <s:enumeration value="DEE_FILE_NOT_OPEN" />
+          <s:enumeration value="DEE_FILE_ALREADY_OPEN" />
+          <s:enumeration value="DEE_INVALID_HANDLE" />
+          <s:enumeration value="DEE_INVALID_QUERY_STRING" />
+          <s:enumeration value="DEE_INVALID_MAX_RESULTS" />
+          <s:enumeration value="DEE_INVALID_DICTIONARY_ENTRY" />
+          <s:enumeration value="DEE_INVALID_POINTER" />
+          <s:enumeration value="DEE_INVALID_PARAMETER" />
+          <s:enumeration value="DEE_INVALID_SAMPLING_FREQUENCY" />
+          <s:enumeration value="DEE_INVALID_LATENCY" />
+          <s:enumeration value="DEE_INVALID_SCORE_THRESHOLD" />
+          <s:enumeration value="DEE_USER_CANCELLED" />
+          <s:enumeration value="DEE_USER_NOT_EXECUTING" />
+          <s:enumeration value="DEE_USER_CANNOT_DEINIT" />
+          <s:enumeration value="DEE_USER_STILL_EXECUTING" />
+          <s:enumeration value="DEE_INSUFFICIENT_MEMORY" />
+          <s:enumeration value="DEE_HANDLE_UNAVAILABLE" />
+          <s:enumeration value="DEE_HANDLE_IN_USE" />
+          <s:enumeration value="DEE_INTERNAL_ERROR" />
+          <s:enumeration value="DEE_TIMEOUT" />
+          <s:enumeration value="DEE_MEDIA_CANNOT_CONVERT" />
+          <s:enumeration value="DEE_BUFFER_TOO_SMALL" />
+          <s:enumeration value="DEE_STREAM_NO_DATA_TO_SEARCH" />
+          <s:enumeration value="DEE_LICENSE_INVALID_EXPIRED" />
+          <s:enumeration value="DEE_LICENSE_INVALID_KERNEL_VERSION" />
+          <s:enumeration value="DEE_LICENSE_FEATURE_NOT_AVAIL" />
+          <s:enumeration value="DEE_LICENSE_INVALID_VERSION" />
+          <s:enumeration value="DEE_LICENSE_INVALID" />
+          <s:enumeration value="DEE_LICENSE_WRONG_COMPUTER" />
+          <s:enumeration value="DEE_LICENSE_TOO_MANY_CPUS" />
+          <s:enumeration value="DEE_LICENSE_WRONG_PLATFORM" />
+          <s:enumeration value="DEE_USERDATA_BUFFER_TOO_SMALL" />
+          <s:enumeration value="DEE_USERDATA_NO_DATA_AVAILABLE" />
+          <s:enumeration value="DEE_USERDATA_INVALID_OFFSET" />
+          <s:enumeration value="DEE_USERDATA_BUFFER_INVALID" />
+          <s:enumeration value="DEE_USERDATA_NOT_SUPPORTED" />
+          <s:enumeration value="DEE_USERDATA_BUFFER_PARTIALLY_FILLED" />
+          <s:enumeration value="DEE_LANGUAGE_MISMATCH" />
+          <s:enumeration value="DEE_SYNC_TEXT_CANNOT_CONVERT" />
+          <s:enumeration value="DEE_SYNC_TEXT_UNKNOWN_CHARACTER" />
+          <s:enumeration value="DEE_SYNC_TEXT_MISMATCHED_PAREN" />
+          <s:enumeration value="DEE_SYNC_TEXT_REQUIRES_FILTERING" />
+          <s:enumeration value="DEE_MINE_SYNTAX_ERROR" />
+          <s:enumeration value="DEE_MINE_INSUFFICIENT_DATA" />
+          <s:enumeration value="DEE_DETECTOR_INVALID_DETECTORID" />
+          <s:enumeration value="DEE_TERMANALYSIS_INVALID_OPERATOR" />
+          <s:enumeration value="DEE_TERMANALYSIS_INVALID_PAU" />
+          <s:enumeration value="DEE_TERMANALYSIS_INVALID_WORD" />
+          <s:enumeration value="DEE_TERMANALYSIS_INVALID_PRO_INDEX" />
+          <s:enumeration value="DEE_TERMANALYSIS_INVALID_PHO_SEQUENCE" />
+          <s:enumeration value="DEE_TERMANALYSIS_INVALID_AUDIOCLIPS" />
+          <s:enumeration value="DEE_TERMANALYSIS_INVALID_ALT_INDEX" />
+          <s:enumeration value="DEERR_LICENSE_SYSTEM_ERROR" />
+          <s:enumeration value="DEERR_LICENSE_SYSTEM_NOMORE_LICENSE" />
+          <s:enumeration value="DEERR_LICENSE_SYSTEM_WAIT_TIMEOUT" />
+          <s:enumeration value="DEERR_LICENSE_RESPONSE_ERR" />
+          <s:enumeration value="DEERR_DEAPI_MISMATCH_QUERY_STRING" />
+          <s:enumeration value="DEERR_SERVER_NOT_IDLE" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="digiEAR_searchCloseHandle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihSearch" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_searchCloseHandleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_searchCloseHandleResult" type="tns:DEERRORCODE_TAG" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_searchCancel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihSearch" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_searchCancelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_searchCancelResult" type="tns:DEERRORCODE_TAG" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_searchGetStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihSearch" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_searchGetStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_searchGetStatusResult" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="1" maxOccurs="1" name="fPercent" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_searchAllowed">
+        <s:complexType />
+      </s:element>
+      <s:element name="digiEAR_searchAllowedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_searchAllowedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_ValidateQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="langVersion" type="s:unsignedByte" />
+            <s:element minOccurs="0" maxOccurs="1" name="strQuery" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_ValidateQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_ValidateQueryResult" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="0" maxOccurs="1" name="badString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerGetAllValidSoundBytes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="langVersion" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerGetAllValidSoundBytesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digiEAR_QueryAnalyzerGetAllValidSoundBytesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerOpenHandle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="langVersion" type="s:unsignedByte" />
+            <s:element minOccurs="0" maxOccurs="1" name="strQuery" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nMaxPro" type="s:unsignedInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerOpenHandleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_QueryAnalyzerOpenHandleResult" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="1" maxOccurs="1" name="ihQanalyzer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerCloseHandle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihQanalyzer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerCloseHandleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_QueryAnalyzerCloseHandleResult" type="tns:DEERRORCODE_TAG" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerInitialSoundBytes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihQanalyzer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerInitialSoundBytesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_QueryAnalyzerInitialSoundBytesResult" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="0" maxOccurs="1" name="strQueryString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSoundBytes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerGetSoundByteSequence">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihQanalyzer" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="index" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerGetSoundByteSequenceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_QueryAnalyzerGetSoundByteSequenceResult" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="0" maxOccurs="1" name="strQueryString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSoundBytes" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="binDict" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="fScore" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerGetAllSoundByteSequences">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihQanalyzer" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nMaxPro" type="s:unsignedInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerGetAllSoundByteSequencesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_QueryAnalyzerGetAllSoundByteSequencesResult" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="0" maxOccurs="1" name="evaluateDS">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerGetSoundByteSequenceCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihQanalyzer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerGetSoundByteSequenceCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_QueryAnalyzerGetSoundByteSequenceCountResult" type="s:unsignedInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerGetWordCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihQanalyzer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerGetWordCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_QueryAnalyzerGetWordCountResult" type="s:unsignedInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerExamineSearchResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihQanalyzer" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="patString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strQuery" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fScore" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="nStartTime" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nEndTime" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerExamineSearchResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_QueryAnalyzerExamineSearchResultResult" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="0" maxOccurs="1" name="examineResultDS">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerEvaluateSoundBytes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihQanalyzer" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nMaxPro" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="clipsDS">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerEvaluateSoundBytesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_QueryAnalyzerEvaluateSoundBytesResult" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="0" maxOccurs="1" name="evaluateDS">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerFindOptimal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihQanalyzer" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="clipsDS">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="nMaxPro" type="s:unsignedInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerFindOptimalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_QueryAnalyzerFindOptimalResult" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="1" maxOccurs="1" name="ihProTerms" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_hAllPro">
+        <s:complexType />
+      </s:element>
+      <s:element name="digiEAR_hAllProResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digiEAR_hAllProResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerAllowed">
+        <s:complexType />
+      </s:element>
+      <s:element name="digiEAR_QueryAnalyzerAllowedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_QueryAnalyzerAllowedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_GetPatInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="patString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_GetPatInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_GetPatInfoResult" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="1" maxOccurs="1" name="iAudioLen" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="langName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="langVersion" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="digiEAR_searchSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_search" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_searchSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_searchResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_search2SoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_search2" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_search2SoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_search2Response" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_searchOpenHandleSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_searchOpenHandle" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_searchOpenHandleSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_searchOpenHandleResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_searchCloseHandleSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_searchCloseHandle" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_searchCloseHandleSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_searchCloseHandleResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_searchCancelSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_searchCancel" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_searchCancelSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_searchCancelResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_searchGetStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_searchGetStatus" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_searchGetStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_searchGetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_searchAllowedSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_searchAllowed" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_searchAllowedSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_searchAllowedResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_ValidateQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_ValidateQuery" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_ValidateQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_ValidateQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerGetAllValidSoundBytesSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerGetAllValidSoundBytes" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerGetAllValidSoundBytesSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerGetAllValidSoundBytesResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerOpenHandleSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerOpenHandle" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerOpenHandleSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerOpenHandleResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerCloseHandleSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerCloseHandle" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerCloseHandleSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerCloseHandleResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerInitialSoundBytesSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerInitialSoundBytes" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerInitialSoundBytesSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerInitialSoundBytesResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerGetSoundByteSequenceSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerGetSoundByteSequence" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerGetSoundByteSequenceSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerGetSoundByteSequenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerGetAllSoundByteSequencesSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerGetAllSoundByteSequences" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerGetAllSoundByteSequencesSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerGetAllSoundByteSequencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerGetSoundByteSequenceCountSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerGetSoundByteSequenceCount" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerGetSoundByteSequenceCountSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerGetSoundByteSequenceCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerGetWordCountSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerGetWordCount" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerGetWordCountSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerGetWordCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerExamineSearchResultSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerExamineSearchResult" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerExamineSearchResultSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerExamineSearchResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerEvaluateSoundBytesSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerEvaluateSoundBytes" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerEvaluateSoundBytesSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerEvaluateSoundBytesResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerFindOptimalSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerFindOptimal" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerFindOptimalSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerFindOptimalResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_hAllProSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_hAllPro" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_hAllProSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_hAllProResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerAllowedSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerAllowed" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_QueryAnalyzerAllowedSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_QueryAnalyzerAllowedResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_GetPatInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_GetPatInfo" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_GetPatInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_GetPatInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DEsearchSoap">
+    <wsdl:operation name="digiEAR_search">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns hit results in DataSet given queries &amp; pat files</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_searchSoapIn" />
+      <wsdl:output message="tns:digiEAR_searchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_search2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns hit results in DataSet given queries &amp; pat files</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_search2SoapIn" />
+      <wsdl:output message="tns:digiEAR_search2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_searchOpenHandle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method creates a new search handle</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_searchOpenHandleSoapIn" />
+      <wsdl:output message="tns:digiEAR_searchOpenHandleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_searchCloseHandle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method closes the search handle</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_searchCloseHandleSoapIn" />
+      <wsdl:output message="tns:digiEAR_searchCloseHandleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_searchCancel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method cancels the search process</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_searchCancelSoapIn" />
+      <wsdl:output message="tns:digiEAR_searchCancelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_searchGetStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the status of search process</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_searchGetStatusSoapIn" />
+      <wsdl:output message="tns:digiEAR_searchGetStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_searchAllowed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method checks if search is available for this user</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_searchAllowedSoapIn" />
+      <wsdl:output message="tns:digiEAR_searchAllowedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_ValidateQuery">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method validates search term</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_ValidateQuerySoapIn" />
+      <wsdl:output message="tns:digiEAR_ValidateQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerGetAllValidSoundBytes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method retrieve all valid sound bytes for a given language</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_QueryAnalyzerGetAllValidSoundBytesSoapIn" />
+      <wsdl:output message="tns:digiEAR_QueryAnalyzerGetAllValidSoundBytesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerOpenHandle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method creates a new query analyzer handle</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_QueryAnalyzerOpenHandleSoapIn" />
+      <wsdl:output message="tns:digiEAR_QueryAnalyzerOpenHandleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerCloseHandle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method closes the search handle</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_QueryAnalyzerCloseHandleSoapIn" />
+      <wsdl:output message="tns:digiEAR_QueryAnalyzerCloseHandleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerInitialSoundBytes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets inital sound bytes</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_QueryAnalyzerInitialSoundBytesSoapIn" />
+      <wsdl:output message="tns:digiEAR_QueryAnalyzerInitialSoundBytesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerGetSoundByteSequence">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets sound byte sequence for given index</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_QueryAnalyzerGetSoundByteSequenceSoapIn" />
+      <wsdl:output message="tns:digiEAR_QueryAnalyzerGetSoundByteSequenceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerGetAllSoundByteSequences">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets all sound byte sequences for given handle</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_QueryAnalyzerGetAllSoundByteSequencesSoapIn" />
+      <wsdl:output message="tns:digiEAR_QueryAnalyzerGetAllSoundByteSequencesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerGetSoundByteSequenceCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets sound byte sequence count</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_QueryAnalyzerGetSoundByteSequenceCountSoapIn" />
+      <wsdl:output message="tns:digiEAR_QueryAnalyzerGetSoundByteSequenceCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerGetWordCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets word count</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_QueryAnalyzerGetWordCountSoapIn" />
+      <wsdl:output message="tns:digiEAR_QueryAnalyzerGetWordCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerExamineSearchResult">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method search result sound byte by sound byte</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_QueryAnalyzerExamineSearchResultSoapIn" />
+      <wsdl:output message="tns:digiEAR_QueryAnalyzerExamineSearchResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerEvaluateSoundBytes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method examines gets optimal sound bytes</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_QueryAnalyzerEvaluateSoundBytesSoapIn" />
+      <wsdl:output message="tns:digiEAR_QueryAnalyzerEvaluateSoundBytesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerFindOptimal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method examines gets optimal sound bytes</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_QueryAnalyzerFindOptimalSoapIn" />
+      <wsdl:output message="tns:digiEAR_QueryAnalyzerFindOptimalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_hAllPro">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns pronunciation model file handles for all languages</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_hAllProSoapIn" />
+      <wsdl:output message="tns:digiEAR_hAllProSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerAllowed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method checks if QueryAnalyzer is available for this user</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_QueryAnalyzerAllowedSoapIn" />
+      <wsdl:output message="tns:digiEAR_QueryAnalyzerAllowedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_GetPatInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets audio length in centiseconds, language name, language pack version from a PAT file</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_GetPatInfoSoapIn" />
+      <wsdl:output message="tns:digiEAR_GetPatInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DEsearchSoap" type="tns:DEsearchSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="digiEAR_search">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_search2">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_search2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_searchOpenHandle">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_searchOpenHandle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_searchCloseHandle">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_searchCloseHandle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_searchCancel">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_searchCancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_searchGetStatus">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_searchGetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_searchAllowed">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_searchAllowed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_ValidateQuery">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_ValidateQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerGetAllValidSoundBytes">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerGetAllValidSoundBytes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerOpenHandle">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerOpenHandle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerCloseHandle">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerCloseHandle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerInitialSoundBytes">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerInitialSoundBytes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerGetSoundByteSequence">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerGetSoundByteSequence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerGetAllSoundByteSequences">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerGetAllSoundByteSequences" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerGetSoundByteSequenceCount">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerGetSoundByteSequenceCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerGetWordCount">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerGetWordCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerExamineSearchResult">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerExamineSearchResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerEvaluateSoundBytes">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerEvaluateSoundBytes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerFindOptimal">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerFindOptimal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_hAllPro">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_hAllPro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerAllowed">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerAllowed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_GetPatInfo">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_GetPatInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DEsearchSoap12" type="tns:DEsearchSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="digiEAR_search">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_search" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_search2">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_search2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_searchOpenHandle">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_searchOpenHandle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_searchCloseHandle">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_searchCloseHandle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_searchCancel">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_searchCancel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_searchGetStatus">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_searchGetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_searchAllowed">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_searchAllowed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_ValidateQuery">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_ValidateQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerGetAllValidSoundBytes">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerGetAllValidSoundBytes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerOpenHandle">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerOpenHandle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerCloseHandle">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerCloseHandle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerInitialSoundBytes">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerInitialSoundBytes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerGetSoundByteSequence">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerGetSoundByteSequence" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerGetAllSoundByteSequences">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerGetAllSoundByteSequences" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerGetSoundByteSequenceCount">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerGetSoundByteSequenceCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerGetWordCount">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerGetWordCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerExamineSearchResult">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerExamineSearchResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerEvaluateSoundBytes">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerEvaluateSoundBytes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerFindOptimal">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerFindOptimal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_hAllPro">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_hAllPro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_QueryAnalyzerAllowed">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_QueryAnalyzerAllowed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_GetPatInfo">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_GetPatInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DEsearch">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">XML Web Services -DEsearch - provided by digiEAR</wsdl:documentation>
+    <wsdl:port name="DEsearchSoap" binding="tns:DEsearchSoap">
+      <soap:address location="http://192.168.0.17/digiEARservices/DEsearch.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DEsearchSoap12" binding="tns:DEsearchSoap12">
+      <soap12:address location="http://192.168.0.17/digiEARservices/DEsearch.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

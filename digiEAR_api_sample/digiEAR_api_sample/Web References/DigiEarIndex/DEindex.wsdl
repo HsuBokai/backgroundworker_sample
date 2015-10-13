@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://cyberasiatech.com/digiEAR/XmlWebServices/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://cyberasiatech.com/digiEAR/XmlWebServices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">XML Web Services -DEindex - provided by digiEAR</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://cyberasiatech.com/digiEAR/XmlWebServices/">
+      <s:element name="digiEAR_index">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="freshFile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acoName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetDir" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ihStream" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_indexResult" type="tns:DEERRORCODE_TAG" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="DEERRORCODE_TAG">
+        <s:restriction base="s:string">
+          <s:enumeration value="DE_SUCCESS" />
+          <s:enumeration value="DEE_ERROR" />
+          <s:enumeration value="DEE_API_NOT_INITIALIZED" />
+          <s:enumeration value="DEE_API_ALREADY_INITIALIZED" />
+          <s:enumeration value="DEE_CACHE_INSUFFICIENT_MEMORY" />
+          <s:enumeration value="DEE_CACHE_SIZE_TOO_SMALL" />
+          <s:enumeration value="DEE_CACHE_FULL" />
+          <s:enumeration value="DEE_FILE_OPEN_ERROR" />
+          <s:enumeration value="DEE_FILE_READ_ERROR" />
+          <s:enumeration value="DEE_FILE_INCORRECT_FORMAT" />
+          <s:enumeration value="DEE_FILE_VERSION_MISMATCH" />
+          <s:enumeration value="DEE_FILE_CREATE_ERROR" />
+          <s:enumeration value="DEE_FILE_WRITE_ERROR" />
+          <s:enumeration value="DEE_FILE_INVALID_FILENAME" />
+          <s:enumeration value="DEE_FILE_NOT_FOUND" />
+          <s:enumeration value="DEE_FILE_PATH_NOT_FOUND" />
+          <s:enumeration value="DEE_FILE_READ_ONLY" />
+          <s:enumeration value="DEE_FILE_NOT_OPEN" />
+          <s:enumeration value="DEE_FILE_ALREADY_OPEN" />
+          <s:enumeration value="DEE_INVALID_HANDLE" />
+          <s:enumeration value="DEE_INVALID_QUERY_STRING" />
+          <s:enumeration value="DEE_INVALID_MAX_RESULTS" />
+          <s:enumeration value="DEE_INVALID_DICTIONARY_ENTRY" />
+          <s:enumeration value="DEE_INVALID_POINTER" />
+          <s:enumeration value="DEE_INVALID_PARAMETER" />
+          <s:enumeration value="DEE_INVALID_SAMPLING_FREQUENCY" />
+          <s:enumeration value="DEE_INVALID_LATENCY" />
+          <s:enumeration value="DEE_INVALID_SCORE_THRESHOLD" />
+          <s:enumeration value="DEE_USER_CANCELLED" />
+          <s:enumeration value="DEE_USER_NOT_EXECUTING" />
+          <s:enumeration value="DEE_USER_CANNOT_DEINIT" />
+          <s:enumeration value="DEE_USER_STILL_EXECUTING" />
+          <s:enumeration value="DEE_INSUFFICIENT_MEMORY" />
+          <s:enumeration value="DEE_HANDLE_UNAVAILABLE" />
+          <s:enumeration value="DEE_HANDLE_IN_USE" />
+          <s:enumeration value="DEE_INTERNAL_ERROR" />
+          <s:enumeration value="DEE_TIMEOUT" />
+          <s:enumeration value="DEE_MEDIA_CANNOT_CONVERT" />
+          <s:enumeration value="DEE_BUFFER_TOO_SMALL" />
+          <s:enumeration value="DEE_STREAM_NO_DATA_TO_SEARCH" />
+          <s:enumeration value="DEE_LICENSE_INVALID_EXPIRED" />
+          <s:enumeration value="DEE_LICENSE_INVALID_KERNEL_VERSION" />
+          <s:enumeration value="DEE_LICENSE_FEATURE_NOT_AVAIL" />
+          <s:enumeration value="DEE_LICENSE_INVALID_VERSION" />
+          <s:enumeration value="DEE_LICENSE_INVALID" />
+          <s:enumeration value="DEE_LICENSE_WRONG_COMPUTER" />
+          <s:enumeration value="DEE_LICENSE_TOO_MANY_CPUS" />
+          <s:enumeration value="DEE_LICENSE_WRONG_PLATFORM" />
+          <s:enumeration value="DEE_USERDATA_BUFFER_TOO_SMALL" />
+          <s:enumeration value="DEE_USERDATA_NO_DATA_AVAILABLE" />
+          <s:enumeration value="DEE_USERDATA_INVALID_OFFSET" />
+          <s:enumeration value="DEE_USERDATA_BUFFER_INVALID" />
+          <s:enumeration value="DEE_USERDATA_NOT_SUPPORTED" />
+          <s:enumeration value="DEE_USERDATA_BUFFER_PARTIALLY_FILLED" />
+          <s:enumeration value="DEE_LANGUAGE_MISMATCH" />
+          <s:enumeration value="DEE_SYNC_TEXT_CANNOT_CONVERT" />
+          <s:enumeration value="DEE_SYNC_TEXT_UNKNOWN_CHARACTER" />
+          <s:enumeration value="DEE_SYNC_TEXT_MISMATCHED_PAREN" />
+          <s:enumeration value="DEE_SYNC_TEXT_REQUIRES_FILTERING" />
+          <s:enumeration value="DEE_MINE_SYNTAX_ERROR" />
+          <s:enumeration value="DEE_MINE_INSUFFICIENT_DATA" />
+          <s:enumeration value="DEE_DETECTOR_INVALID_DETECTORID" />
+          <s:enumeration value="DEE_TERMANALYSIS_INVALID_OPERATOR" />
+          <s:enumeration value="DEE_TERMANALYSIS_INVALID_PAU" />
+          <s:enumeration value="DEE_TERMANALYSIS_INVALID_WORD" />
+          <s:enumeration value="DEE_TERMANALYSIS_INVALID_PRO_INDEX" />
+          <s:enumeration value="DEE_TERMANALYSIS_INVALID_PHO_SEQUENCE" />
+          <s:enumeration value="DEE_TERMANALYSIS_INVALID_AUDIOCLIPS" />
+          <s:enumeration value="DEE_TERMANALYSIS_INVALID_ALT_INDEX" />
+          <s:enumeration value="DEERR_LICENSE_SYSTEM_ERROR" />
+          <s:enumeration value="DEERR_LICENSE_SYSTEM_NOMORE_LICENSE" />
+          <s:enumeration value="DEERR_LICENSE_SYSTEM_WAIT_TIMEOUT" />
+          <s:enumeration value="DEERR_LICENSE_RESPONSE_ERR" />
+          <s:enumeration value="DEERR_DEAPI_MISMATCH_QUERY_STRING" />
+          <s:enumeration value="DEERR_SERVER_NOT_IDLE" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="digiEAR_indexOpenHandle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="acoName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexOpenHandleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_indexOpenHandleResult" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="1" maxOccurs="1" name="ihIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexOpenHandle2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="langHandle" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexOpenHandle2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_indexOpenHandle2Result" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="1" maxOccurs="1" name="ihIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexCloseHandle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexCloseHandleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_indexCloseHandleResult" type="tns:DEERRORCODE_TAG" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexCancel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexCancelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_indexCancelResult" type="tns:DEERRORCODE_TAG" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexEnd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexEndResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_indexEndResult" type="tns:DEERRORCODE_TAG" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexGetStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ihIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexGetStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_indexGetStatusResult" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="1" maxOccurs="1" name="iSecond" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexGetResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="freshFile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetDir" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ihIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="milSec" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexGetResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_indexGetResultResult" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="1" maxOccurs="1" name="audioLength" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="patSizeMB" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="mediaSizeMB" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="mediaDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexGetResult_NoMove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="freshFile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetDir" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ihIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="milSec" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexGetResult_NoMoveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_indexGetResult_NoMoveResult" type="tns:DEERRORCODE_TAG" />
+            <s:element minOccurs="1" maxOccurs="1" name="audioLength" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="patSizeMB" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="mediaSizeMB" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="mediaDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexAllowed">
+        <s:complexType />
+      </s:element>
+      <s:element name="digiEAR_indexAllowedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_indexAllowedResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_indexLimit">
+        <s:complexType />
+      </s:element>
+      <s:element name="digiEAR_indexLimitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digiEAR_indexLimitResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_hAllAco">
+        <s:complexType />
+      </s:element>
+      <s:element name="digiEAR_hAllAcoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digiEAR_hAllAcoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="digiEAR_hAllAco2">
+        <s:complexType />
+      </s:element>
+      <s:element name="digiEAR_hAllAco2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digiEAR_hAllAco2Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="digiEAR_indexSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_index" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexOpenHandleSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexOpenHandle" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexOpenHandleSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexOpenHandleResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexOpenHandle2SoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexOpenHandle2" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexOpenHandle2SoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexOpenHandle2Response" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexCloseHandleSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexCloseHandle" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexCloseHandleSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexCloseHandleResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexCancelSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexCancel" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexCancelSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexCancelResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexEndSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexEnd" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexEndSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexEndResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexGetStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexGetStatus" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexGetStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexGetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexGetResultSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexGetResult" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexGetResultSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexGetResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexGetResult_NoMoveSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexGetResult_NoMove" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexGetResult_NoMoveSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexGetResult_NoMoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexAllowedSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexAllowed" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexAllowedSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexAllowedResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexLimitSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexLimit" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_indexLimitSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_indexLimitResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_hAllAcoSoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_hAllAco" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_hAllAcoSoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_hAllAcoResponse" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_hAllAco2SoapIn">
+    <wsdl:part name="parameters" element="tns:digiEAR_hAllAco2" />
+  </wsdl:message>
+  <wsdl:message name="digiEAR_hAllAco2SoapOut">
+    <wsdl:part name="parameters" element="tns:digiEAR_hAllAco2Response" />
+  </wsdl:message>
+  <wsdl:portType name="DEindexSoap">
+    <wsdl:operation name="digiEAR_index">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method indexes given freshFile, hAco, targetDir, &amp; stream handle</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_indexSoapIn" />
+      <wsdl:output message="tns:digiEAR_indexSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexOpenHandle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method creates a new handle for indexing stream given aco name</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_indexOpenHandleSoapIn" />
+      <wsdl:output message="tns:digiEAR_indexOpenHandleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexOpenHandle2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method creates a new handle for indexing stream given aco handle</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_indexOpenHandle2SoapIn" />
+      <wsdl:output message="tns:digiEAR_indexOpenHandle2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexCloseHandle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method closes the handle for indexing stream</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_indexCloseHandleSoapIn" />
+      <wsdl:output message="tns:digiEAR_indexCloseHandleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexCancel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method cancels the indexing process</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_indexCancelSoapIn" />
+      <wsdl:output message="tns:digiEAR_indexCancelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexEnd">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method completes the indexing process</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_indexEndSoapIn" />
+      <wsdl:output message="tns:digiEAR_indexEndSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexGetStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the status of the indexing process</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_indexGetStatusSoapIn" />
+      <wsdl:output message="tns:digiEAR_indexGetStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexGetResult">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the result of the indexing process</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_indexGetResultSoapIn" />
+      <wsdl:output message="tns:digiEAR_indexGetResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexGetResult_NoMove">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the result of the indexing process without moving audio file</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_indexGetResult_NoMoveSoapIn" />
+      <wsdl:output message="tns:digiEAR_indexGetResult_NoMoveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexAllowed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method checks if indexing is allowed for this user</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_indexAllowedSoapIn" />
+      <wsdl:output message="tns:digiEAR_indexAllowedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexLimit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets indexing limit for digiEAR, this is used for demo version only</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_indexLimitSoapIn" />
+      <wsdl:output message="tns:digiEAR_indexLimitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_hAllAco">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns acoustic model file handles for all languages</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_hAllAcoSoapIn" />
+      <wsdl:output message="tns:digiEAR_hAllAcoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_hAllAco2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns acoustic model file handles for all languages</wsdl:documentation>
+      <wsdl:input message="tns:digiEAR_hAllAco2SoapIn" />
+      <wsdl:output message="tns:digiEAR_hAllAco2SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DEindexSoap" type="tns:DEindexSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="digiEAR_index">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_index" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexOpenHandle">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexOpenHandle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexOpenHandle2">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexOpenHandle2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexCloseHandle">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexCloseHandle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexCancel">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexCancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexEnd">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexEnd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexGetStatus">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexGetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexGetResult">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexGetResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexGetResult_NoMove">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexGetResult_NoMove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexAllowed">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexAllowed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexLimit">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexLimit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_hAllAco">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_hAllAco" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_hAllAco2">
+      <soap:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_hAllAco2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DEindexSoap12" type="tns:DEindexSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="digiEAR_index">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_index" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexOpenHandle">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexOpenHandle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexOpenHandle2">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexOpenHandle2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexCloseHandle">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexCloseHandle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexCancel">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexCancel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexEnd">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexEnd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexGetStatus">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexGetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexGetResult">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexGetResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexGetResult_NoMove">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexGetResult_NoMove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexAllowed">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexAllowed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_indexLimit">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_indexLimit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_hAllAco">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_hAllAco" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="digiEAR_hAllAco2">
+      <soap12:operation soapAction="http://cyberasiatech.com/digiEAR/XmlWebServices/digiEAR_hAllAco2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DEindex">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">XML Web Services -DEindex - provided by digiEAR</wsdl:documentation>
+    <wsdl:port name="DEindexSoap" binding="tns:DEindexSoap">
+      <soap:address location="http://192.168.0.17/digiEARservices/DEindex.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DEindexSoap12" binding="tns:DEindexSoap12">
+      <soap12:address location="http://192.168.0.17/digiEARservices/DEindex.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
